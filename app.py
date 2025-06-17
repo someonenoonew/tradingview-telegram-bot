@@ -14,7 +14,7 @@ def home():
 @app.route('/webhook', methods=['POST'])
 def webhook():
     data = request.get_json()
-    mesaj = data.get('message', 'Alertă fără mesaj')
+    mesaj = data.get('message', {}).get('text', 'Alertă fără mesaj')
 
     url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
     payload = {
@@ -23,3 +23,4 @@ def webhook():
     }
     r = requests.post(url, data=payload)
     return 'Trimis', r.status_code
+
