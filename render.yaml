@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: tradingview-telegram
+    env: python
+    buildCommand: ""
+    startCommand: gunicorn app:app
+    envVars:
+      - key: TELEGRAM_TOKEN
+        value: tokenul_tău_de_la_bot
+      - key: CHAT_ID
+        value: id-ul_chatului_tău
