@@ -13,7 +13,7 @@ def home():
 
 @app.route('/webhook', methods=['POST'])
 def webhook():
-    data = request.data.decode('utf-8')
+    mesaj = request.data.decode('utf-8')
 
     url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
     payload = {
